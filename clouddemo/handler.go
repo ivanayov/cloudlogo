@@ -12,7 +12,7 @@ type HomepageTokens struct {
 
 // Handle a serverless request
 func Handle(req []byte) string {
-	color := true
+	color := false
 
 	var err error
 	tmpl, err := template.ParseFiles("./template/index.html")
