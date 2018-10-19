@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"fmt"
 	"html/template"
+	"os"
+	"strconv"
 )
 
 type HomepageTokens struct {
@@ -12,7 +14,14 @@ type HomepageTokens struct {
 
 // Handle a serverless request
 func Handle(req []byte) string {
+
 	dark := true
+
+	darkVal := os.Getenv("dark")
+	valOut, parseErr := strconv.ParseBool(darkVal)
+	if parseErr == nil {
+		dark = valOut
+	}
 
 	var err error
 	tmpl, err := template.ParseFiles("./template/index.html")
