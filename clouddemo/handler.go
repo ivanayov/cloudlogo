@@ -7,12 +7,12 @@ import (
 )
 
 type HomepageTokens struct {
-	Color bool
+	Dark bool
 }
 
 // Handle a serverless request
 func Handle(req []byte) string {
-	color := false
+	dark := true
 
 	var err error
 	tmpl, err := template.ParseFiles("./template/index.html")
@@ -22,7 +22,7 @@ func Handle(req []byte) string {
 	var tpl bytes.Buffer
 
 	err = tmpl.Execute(&tpl, HomepageTokens{
-		Color: color,
+		Dark: dark,
 	})
 	if err != nil {
 		return fmt.Sprintf("Internal server error with homepage template: %s", err.Error())
