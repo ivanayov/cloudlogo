@@ -26,7 +26,7 @@ func Handle(req []byte) string {
 	var err error
 	tmpl, err := template.ParseFiles("./template/index.html")
 	if err != nil {
-		return fmt.Sprintf("(test) Internal server error with homepage: %s", err.Error())
+		return fmt.Sprintf("(test) Internal server error with homepage: s", err.Error())
 	}
 	var tpl bytes.Buffer
 
